@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
+import './styles/normalize.css';
+import './styles/fontawesome.min.css';
+import './styles/instagram.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
