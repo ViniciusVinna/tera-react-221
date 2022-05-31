@@ -1,12 +1,13 @@
-import './Topbar.css'
+import './Topbar.css';
+
+import { Logo } from '../Logo';
 
 export function Topbar() {
 	return (
 		<header className="topbar">
 			<div className="container">
-				<a href="/#" className="topbar__logo">
-					<img src="img/instagram-logo.svg" alt="Instagram logo"/>
-				</a>
+
+				<Logo />
 
 				<button className="topbar__icon">
 					<i className="far fa-paper-plane"></i>
