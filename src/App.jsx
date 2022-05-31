@@ -1,22 +1,14 @@
 import React from 'react';
 
+import { Topbar } from './components/Topbar';
 
 // React Fragment // <>.....</>
 
 function App() {
   return (
 		<React.Fragment>
-			<header className="topbar">
-      <div className="container">
-        <a href="/#" className="topbar__logo">
-          <img src="img/instagram-logo.svg" alt="Instagram logo"/>
-        </a>
 
-        <button className="topbar__icon">
-          <i className="far fa-paper-plane"></i>
-        </button>
-      </div>
-		</header>
+		<Topbar />
 
     <div className="container">
       <section className="stories">
