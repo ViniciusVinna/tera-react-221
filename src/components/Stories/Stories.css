@@ -1,0 +1,26 @@
+.stories {
+	overflow-x: hidden;
+	overflow-y: auto;
+	width: 100%;
+	padding: 16px 0;
+}
+
+.stories__container {
+	align-items: center;
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.stories .user__thumb {
+	width: 78px;
+	height: 78px;
+	margin: 0 8px;
+	justify-content: center;
+	align-items: center;
+}
+
+.stories .user__thumb__wrapper {
+	height: 72px;
+	width: 72px;
+}
