@@ -1,9 +1,13 @@
+import { useState } from 'react';
+
 import bruceImg from './img/bruce-profile.jpg';
 import brucePostImg from './img/bruce-3.jpg';
 
 import './Post.css';
 
 export function Post() {
+	const [deuLike, alteraLike] = useState(false);
+
 	return (
 		<article className="post">
 			<header className="post__header">
@@ -25,8 +29,11 @@ export function Post() {
 			</figure>
 
 			<nav className="post__controls">
-				<button className="post__control">
-					<i className="far fa-heart"></i>
+				<button
+					className="post__control"
+					onClick={() => alteraLike(!deuLike)}
+				>
+					{deuLike ? <i className="fa fa-heart" /> : <i className="far fa-heart" /> }
 				</button>
 
 				<button className="post__control">

@@ -61,6 +61,10 @@
 	margin: 0 8px;
 }
 
+.post__control .fa.fa-heart {
+	color: #e74c3c;
+}
+
 .post__control:last-of-type {
 	justify-self: flex-end;
 	margin-left: auto;
