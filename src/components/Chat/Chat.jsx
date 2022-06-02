@@ -1,6 +1,30 @@
+import { useState, useEffect } from 'react';
+
 import './Chat.css';
+import { Spin } from 'antd';
+
+import { Message } from './Message';
+import { Form } from './Form';
 
 export function Chat({ aberto = false, fechaChat = () => {}}) {
+	const [carregando, alteraCarregando] = useState(true);
+	const [mensagens, alteraMensagens] = useState([]);
+
+	function buscaMensagens() {
+		fetch('https://6297ff048d77ad6f750b76fd.mockapi.io/messages')
+		.then(resposta => resposta.json())
+		.then(resposta => {
+			alteraCarregando(false);
+			alteraMensagens(resposta);
+		})
+	}
+
+	useEffect(() => {
+		let intervalo = setInterval(() => buscaMensagens(), 1000);
+
+		return () => clearInterval(intervalo);
+	});
+
 	return (
 		<div className={`chat ${aberto ? 'aberto' : ''}`}>
 			<div className="chat__header">
@@ -13,17 +37,20 @@ export function Chat({ aberto = false, fechaChat = () => {}}) {
 			</div>
 
 			<div className="chat__content">
-				<div className='chat__message'>
-					<h4>Fulano de Tal</h4>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, assumenda dolorem voluptas in quasi similique dolore quibusdam debitis</p>
-				</div>
 
-				<div className='chat__message'>
-					<h4>Fulano de Tal</h4>
-					<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, assumenda dolorem voluptas in quasi similique dolore quibusdam debitis</p>
-				</div>
+				{carregando
+					? <Spin />
+					: mensagens.map((mensagem) =>
+						<Message
+							key={mensagem.id}
+							nome={mensagem.nome}
+							mensagem={mensagem.mensagem}
+						/>
+					)
+				}
 			</div>
 
+			<Form />
 		</div>
 	)
 }

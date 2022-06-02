@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
 
+import 'antd/dist/antd.css';
+
 import './styles/normalize.css';
 import './styles/fontawesome.min.css';
 import './styles/instagram.css';
