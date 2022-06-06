@@ -20,7 +20,7 @@ export function Chat({ aberto = false, fechaChat = () => {}}) {
 	}
 
 	useEffect(() => {
-		let intervalo = setInterval(() => buscaMensagens(), 1000);
+		let intervalo = setInterval(() => buscaMensagens(), 10000);
 
 		return () => clearInterval(intervalo);
 	});
