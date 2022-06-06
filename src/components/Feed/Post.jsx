@@ -1,22 +1,25 @@
 import { useState } from 'react';
 
-import bruceImg from './img/bruce-profile.jpg';
-import brucePostImg from './img/bruce-3.jpg';
-
 import './Post.css';
 
-export function Post() {
+export function Post({
+	id,
+	avatar = 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png',
+	nome,
+	username,
+	foto = 'https://archive.org/download/placeholder-image/placeholder-image.jpg'
+}) {
 	const [deuLike, alteraLike] = useState(false);
 
 	return (
 		<article className="post">
 			<header className="post__header">
 				<div className="user">
-					<a href="/#" className="user__thumb">
-						<img src={bruceImg} alt=""/>
+					<a href={`/usuario/${id}`} className="user__thumb">
+						<img src={avatar} alt=""/>
 					</a>
 
-					<a href="/#" className="user__name">Bruce Wayne</a>
+					<a href={`/usuario/${id}`} className="user__name">{nome}</a>
 				</div>
 
 				<button className="post__context">
@@ -25,7 +28,7 @@ export function Post() {
 			</header>
 
 			<figure className="post__figure">
-				<img src={brucePostImg} alt=""/>
+				<img src={foto} alt=""/>
 			</figure>
 
 			<nav className="post__controls">
@@ -48,7 +51,7 @@ export function Post() {
 			<div className="post__status">
 				<div className="user">
 					<span>
-					curtido por <a href="/#">Domino</a> e outras <a href="/#">7 pessoas</a>
+					curtido por <a href={`/usuario/${id}`}>Domino</a> e outras <a href={`/usuario/${id}`}>7 pessoas</a>
 				</span>
 				</div>
 			</div>

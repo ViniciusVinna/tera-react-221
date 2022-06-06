@@ -8,7 +8,7 @@ import { Chat } from './components/Chat';
 
 function App() {
 	// Estado APP
-	const [chatAberto, alteraChatAberto] = React.useState(true);
+	const [chatAberto, alteraChatAberto] = React.useState(false);
 
   return (
 		<React.Fragment>
