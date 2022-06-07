@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import './Topbar.css';
 
@@ -9,7 +10,7 @@ import { Logo } from '../Logo';
 export function Topbar({ abreChat = () => {}}) {
 	const [estaLogado, setLogado] = useState(false);
 	const [usuarioLogado, setUsuario] = useState({});
-
+	const location = useLocation();
 
 	useEffect(() => {
 		const usuario = localStorage.getItem('usuario');
@@ -18,7 +19,7 @@ export function Topbar({ abreChat = () => {}}) {
 			setLogado(true);
 			setUsuario(JSON.parse(usuario));
 		}
-	}, [window.location.pathname])
+	}, [location.pathname])
 
 	return (
 		<header className="topbar">
