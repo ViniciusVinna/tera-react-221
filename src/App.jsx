@@ -1,27 +1,26 @@
 import React from 'react';
+import { Routes, Route } from "react-router-dom";
 
-import { Topbar } from './components/Topbar';
 import { Footer } from './components/Footer';
-import { Stories } from './components/Stories';
-import { Feed } from './components/Feed';
-import { Chat } from './components/Chat';
+import { Topbar } from './components/Topbar';
+
+import { Login, Feed, User } from './pages';
 
 function App() {
-	// Estado APP
-	const [chatAberto, alteraChatAberto] = React.useState(false);
-
   return (
 		<React.Fragment>
 
-		<Topbar abreChat={alteraChatAberto} />
+			<Topbar />
 
-		<Stories />
+			<Routes>
+				<Route path="/" element={<Login />} />
 
-		<Feed />
+				<Route path="/feed" element={<Feed />} />
 
-		<Chat aberto={chatAberto} fechaChat={alteraChatAberto} />
+				<Route path="/usuario/:id" element={<User />} />
+			</Routes>
 
-		<Footer />
+			<Footer />
 		</React.Fragment>
   );
 }
