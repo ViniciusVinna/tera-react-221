@@ -10,6 +10,7 @@ import { Logo } from '../Logo';
 export function Topbar({ abreChat = () => {}}) {
 	const [estaLogado, setLogado] = useState(false);
 	const [usuarioLogado, setUsuario] = useState({});
+
 	const location = useLocation();
 
 	useEffect(() => {
